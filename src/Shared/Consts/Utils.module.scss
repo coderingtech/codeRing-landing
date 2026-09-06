@@ -1,0 +1,92 @@
+@use '/src/Shared/Consts/Durations.module' as Durations;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Fonts.module' as Fonts;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+
+@mixin clickable {
+  cursor: pointer;
+  transition: transform Durations.$fast, #{var(--extra-transition, opacity 0s)};
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+@mixin contentPage {
+  width: 100%;
+  max-width: 900px;
+  min-height: Sizes.$pageHeight;
+  display: flex;
+  flex-direction: column;
+  gap: Sizes.$gapXL;
+
+  @media screen and (max-width: Breakpoints.$mobile) {
+    min-height: calc(#{Sizes.$pageHeight} - #{Sizes.$mobileMenuHeight});
+  }
+}
+
+@mixin centerPage {
+  @include flexCenter;
+  width: 100%;
+  flex-grow: 1;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+@mixin flexRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin input {
+  @include Fonts.mainFont;
+  width: 100%;
+  max-width: 400px;
+  max-height: 300px;
+  padding: Sizes.$gapS Sizes.$gapM;
+  border-radius: Sizes.$borderRadiusS;
+  background-color: Colors.$background;
+  border: 1px solid Colors.$separator;
+  color: Colors.$white;
+  outline: none;
+  transition: border Durations.$fast;
+
+  &:hover {
+    border: 1px solid Colors.$grayHover;
+  }
+
+  &:focus {
+    border: 1px solid Colors.$white;
+  }
+
+  &.allWidth {
+    max-width: 100%;
+  }
+
+  &.error {
+    border: 1px solid Colors.$error;
+  }
+}
+
+@mixin hideScrollBar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,0 +1,139 @@
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Durations.module' as Durations;
+
+$size: var(--size, 48);
+$shift: calc(4px * $size / 48);
+$smallScale: .75;
+$borderSize: max(1px, calc(3px * $size / 48));
+
+@mixin normalBorder {
+  border-width: $borderSize;
+  border-left-width: calc($borderSize * 2);
+  border-right-width: calc($borderSize * 2);
+}
+
+@mixin bigBorder {
+  border-width: calc($borderSize / $smallScale);
+  border-left-width: calc(2 * $borderSize / $smallScale);
+  border-right-width: calc(2 * $borderSize / $smallScale);
+}
+
+@media (hover: hover) {
+  .wrapper.clickable:hover {
+    --additional-shift: 1px;
+  }
+}
+
+.wrapper {
+  --additional-shift: 0px;
+  position: relative;
+  width: calc($size * 1px);
+  height: calc($size * 1px);
+  transform: rotateX(-45deg) rotateY(45deg);
+  transform-style: preserve-3d;
+
+  &.white {
+    .ring {
+      border-color: Colors.$white;
+    }
+  }
+
+  &.black {
+    .ring {
+      border-color: Colors.$black;
+    }
+  }
+
+  &.clickable {
+    &:active {
+      --additional-shift: 2px;
+    }
+  }
+}
+
+.ring {
+  @include normalBorder;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border-style: solid;
+  backface-visibility: hidden;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  transition: transform Durations.$fast;
+  will-change: transform;
+
+  &.back {
+    transform: rotate(45deg) translateZ(calc($shift * -1 - var(--additional-shift, 0px)));
+
+    &.loading {
+      animation-name: loadingBack;
+    }
+  }
+
+  &.front {
+    transform: rotate(45deg) translateZ(calc($shift + var(--additional-shift, 0px)));
+
+    &.loading {
+      animation-name: loadingFront;
+    }
+  }
+}
+
+@keyframes loadingBack {
+  from {
+    @include normalBorder;
+    transform: rotate(45deg) translateZ(calc($shift * -1)) scale(1);
+  }
+
+  25% {
+    @include normalBorder;
+    transform: rotate(45deg) translateZ($shift) scale(1);
+  }
+
+  50% {
+    @include bigBorder;
+    transform: rotate(45deg) translateZ($shift) scale($smallScale);
+  }
+
+  75% {
+    @include bigBorder;
+    transform: rotate(45deg) translateZ(calc($shift * -1)) scale($smallScale);
+  }
+
+  to {
+    @include normalBorder;
+    transform: rotate(45deg) translateZ(calc($shift * -1)) scale(1);
+  }
+}
+
+@keyframes loadingFront {
+  from {
+    @include bigBorder;
+    transform: rotate(45deg) translateZ($shift) scale($smallScale);
+  }
+
+  25% {
+    @include bigBorder;
+    transform: rotate(45deg) translateZ(calc($shift * -1)) scale($smallScale);
+  }
+
+  50% {
+    @include normalBorder;
+    transform: rotate(45deg) translateZ(calc($shift * -1)) scale(1);
+  }
+
+  75% {
+    @include normalBorder;
+    transform: rotate(45deg) translateZ($shift) scale(1);
+  }
+
+  to {
+    @include bigBorder;
+    transform: rotate(45deg) translateZ($shift) scale($smallScale);
+  }
+}

@@ -1,0 +1,103 @@
+@use '/src/Shared/Consts/Fonts.module' as Fonts;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+
+.common {
+  @include Fonts.mainFont;
+}
+
+.title {
+  &.extraSmallSize {
+    font-size: Sizes.$titleExtraSmall;
+  }
+
+  &.smallSize {
+    font-size: Sizes.$titleSmall;
+  }
+
+  &.mediumSize {
+    font-size: Sizes.$titleMedium;
+  }
+
+  &.largeSize {
+    font-size: Sizes.$titleLarge;
+  }
+
+  &.lightWeight {
+    font-weight: 500;
+  }
+
+  &.regularWeight {
+    font-weight: 600;
+  }
+
+  &.mediumWeight {
+    font-weight: 700;
+  }
+
+  &.semiboldWeight {
+    font-weight: 800;
+  }
+
+  &.boldWeight {
+    font-weight: 900;
+  }
+}
+
+.text {
+  &.extraSmallSize {
+    font-size: Sizes.$textExtraSmall;
+  }
+
+  &.smallSize {
+    font-size: Sizes.$textSmall;
+  }
+
+  &.mediumSize {
+    font-size: Sizes.$textMedium;
+  }
+
+  &.largeSize {
+    font-size: Sizes.$textLarge;
+  }
+
+  &.lightWeight {
+    font-weight: 300;
+  }
+
+  &.regularWeight {
+    font-weight: 400;
+  }
+
+  &.mediumWeight {
+    font-weight: 500;
+  }
+
+  &.semiboldWeight {
+    font-weight: 600;
+  }
+
+  &.boldWeight {
+    font-weight: 700;
+  }
+}
+
+.white {
+  color: Colors.$white;
+}
+
+.subtitle {
+  color: Colors.$subtitle;
+}
+
+.black {
+  color: Colors.$black;
+}
+
+.error {
+  color: Colors.$error;
+}
+
+.success {
+  color: Colors.$success
+}

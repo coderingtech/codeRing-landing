@@ -1,0 +1,34 @@
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: Sizes.$pagePadding;
+  box-sizing: border-box;
+  background-color: Colors.$background;
+  color: Colors.$white;
+}
+
+p, h1, h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+  color: inherit;
+}
+
+button {
+  background-color: transparent;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}

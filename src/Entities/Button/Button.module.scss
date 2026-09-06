@@ -1,0 +1,153 @@
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+@use '/src/Shared/Consts/Durations.module' as Durations;
+
+@media (hover: hover) {
+  .button.primary:hover {
+    background-color: Colors.$whiteHover;
+  }
+
+  .button.secondary:hover {
+    background-color: Colors.$grayHover;
+  }
+
+  .button.border:hover {
+    border: 1px solid Colors.$whiteHover;
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .button.transparent:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .button.primaryRed:hover {
+    background-color: Colors.$errorHover;
+  }
+}
+
+.button {
+  --extra-transition: background-color #{Durations.$fast}, border #{Durations.$fast};
+  @include Utils.clickable;
+  border-radius: Sizes.$borderRadiusS;
+
+  &.small {
+    padding: Sizes.$gapXS Sizes.$gapM;
+
+    & .icon {
+      height: Sizes.$textSmall;
+      width: Sizes.$textSmall;
+    }
+  }
+
+  &.medium {
+    padding: Sizes.$gapS Sizes.$gapL;
+
+    & .icon {
+      height: Sizes.$textMedium;
+      width: Sizes.$textMedium;
+    }
+  }
+
+  &.large {
+    padding: Sizes.$gapM Sizes.$gapXL;
+
+    & .icon {
+      height: Sizes.$textLarge;
+      width: Sizes.$textLarge;
+    }
+  }
+
+  &.primary {
+    background-color: Colors.$white;
+
+    &:active {
+      background-color: Colors.$whiteActive;
+    }
+
+    & .icon {
+      color: Colors.$black;
+    }
+  }
+
+  &.secondary {
+    background-color: Colors.$gray;
+
+    &:active {
+      background-color: Colors.$grayActive;
+    }
+
+    & .icon {
+      color: Colors.$white;
+    }
+  }
+
+  &.border {
+    background-color: transparent;
+    border: 1px solid Colors.$white;
+
+    &:active {
+      border: 1px solid Colors.$whiteActive;
+      background-color: rgba(255, 255, 255, 0.09);
+    }
+
+    & .icon {
+      color: Colors.$white;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+
+    &:active {
+      background-color: rgba(255, 255, 255, 0.09);
+    }
+
+    & .icon {
+      color: Colors.$white;
+    }
+  }
+
+  &.primaryRed {
+    background-color: Colors.$error;
+
+    &:active {
+      background-color: Colors.$errorActive
+    }
+
+    & .icon {
+      color: Colors.$white;
+    }
+  }
+
+  &.error {
+    border: 1px solid Colors.$error;
+  }
+
+  &.allWidth {
+    width: 100%;
+  }
+
+  &.iconButton {
+    padding: Sizes.$gapS Sizes.$gapS;
+  }
+}
+
+.contentWrapper {
+  @include Utils.flexRow;
+  justify-content: center;
+  gap: Sizes.$gapS;
+
+  &.alignLeft {
+    justify-content: flex-start;
+  }
+
+  &.hide {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.loaderWrapper {
+  @include Utils.flexCenter;
+}

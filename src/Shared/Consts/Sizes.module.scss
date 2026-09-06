@@ -1,0 +1,46 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+
+$gapXXS: 2px;
+$gapXS: 4px;
+$gapS: 8px;
+$gapM: 12px;
+$gapL: 16px;
+$gapXL: 20px;
+$gapXXL: 24px;
+$gapXXXL: 32px;
+$borderRadiusXS: 4px;
+$borderRadiusS: 8px;
+$borderRadiusM: 12px;
+$borderRadiusL: 16px;
+$borderRadiusXL: 20px;
+$borderRadiusXXL: 24px;
+$pagePadding: var(--page-padding, #{$gapXXL});
+$pageHeight: calc(100dvh - #{$pagePadding} * 2);
+$mobileMenuHeight: calc(46px + #{$gapXL});
+$titleExtraSmall: var(--title-extra-small, 16px);
+$titleSmall: var(--title-small, 18px);
+$titleMedium: var(--title-medium, 24px);
+$titleLarge: var(--title-large, 32px);
+$textExtraSmall: 12px;
+$textSmall: 14px;
+$textMedium: 16px;
+$textLarge: 20px;
+$navBarHeightTouch: 46px;
+
+:root {
+  --page-padding: #{$gapXXL};
+  --title-extra-small: 16px;
+  --title-small: 18px;
+  --title-medium: 24px;
+  --title-large: 32px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-padding: #{$gapL};
+    --title-extra-small: 14px;
+    --title-small: 16px;
+    --title-medium: 20px;
+    --title-large: 28px;
+  }
+}

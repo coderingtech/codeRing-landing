@@ -1,0 +1,17 @@
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.wrapper {
+  @include Utils.flexColumn;
+  padding: Sizes.$gapM Sizes.$gapL;
+  background-color: Colors.$surface;
+  border: 1px solid Colors.$separator;
+  border-radius: Sizes.$borderRadiusL;
+  gap: Sizes.$gapL;
+}
+
+.titleWrapper {
+  @include Utils.flexRow;
+  gap: Sizes.$gapS;
+}
