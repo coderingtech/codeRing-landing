@@ -1,0 +1,60 @@
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(
+    180deg,
+    #2e1065 0%,
+    #240b50 55%,
+    #170733 100%
+  );
+
+  --title-large: clamp(2.5rem, 5.5vw, 5rem);
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: Sizes.$gapXXL;
+  width: 100%;
+  max-width: 860px;
+  padding: 0 Sizes.$gapXXL;
+  text-align: center;
+}
+
+.title {
+  line-height: 1.1;
+}
+
+.subtitle {
+  max-width: 640px;
+  line-height: 1.5;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .hero {
+    --title-large: clamp(2.125rem, 9vw, 3rem);
+  }
+
+  .content {
+    gap: Sizes.$gapXL;
+    padding: 0 Sizes.$gapXL;
+  }
+}
