@@ -25,8 +25,9 @@ const Hero = () => {
       <GradientWaves
         className={styles.waves}
         horizonColor="#2e1065"
-        waveColor="#7c3aed"
-        crestColor="#e879f9"
+        waveColor="#5b21b6"
+        crestColor="#8b5cf6"
+        amplitude={5}
         detail="high"
       />
       <div className={styles.content}>
