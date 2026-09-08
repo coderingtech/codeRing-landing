@@ -4,26 +4,10 @@
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
 @use '/src/Shared/Consts/Utils.module' as Utils;
 
-@media (hover: hover) {
-  .wrapper.clickable:hover .logo {
-    --additional-shift: 1px;
-  }
-}
-
 .wrapper {
   @include Utils.flexRow;
   gap: Sizes.$gapXS;
   cursor: default;
-
-  &.clickable {
-    cursor: pointer;
-
-    &:active {
-      .logo {
-        --additional-shift: 2px;
-      }
-    }
-  }
 }
 
 .codering {

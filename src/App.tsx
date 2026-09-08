@@ -1,7 +1,7 @@
+import Layout from "@/Widgets/Layout";
+
 const App = () => {
-    return (
-        <div>ZALUPA</div>
-    );
+  return <Layout />;
 };
 
 export default App;

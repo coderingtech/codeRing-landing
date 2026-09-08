@@ -1,0 +1,41 @@
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.surface {
+  width: max-content;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.navBar {
+  @include Utils.flexRow;
+  gap: Sizes.$gapL;
+}
+
+.centerButtons {
+  @include Utils.flexRow;
+  gap: Sizes.$gapS;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .surface {
+    position: fixed;
+    bottom: Sizes.$pagePadding;
+    left: Sizes.$pagePadding;
+    right: Sizes.$pagePadding;
+    width: auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  .navBar {
+    width: 100%;
+    justify-content: space-between;
+    gap: Sizes.$gapM;
+  }
+
+  .centerButtons {
+    display: none;
+  }
+}

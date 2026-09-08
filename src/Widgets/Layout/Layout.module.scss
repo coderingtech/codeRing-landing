@@ -1,0 +1,14 @@
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .layout {
+    padding-bottom: calc(Sizes.$mobileMenuHeight + Sizes.$gapL);
+  }
+}
