@@ -3,7 +3,7 @@ import { IconExternalLink } from "@tabler/icons-react";
 import Button from "@/Entities/Button";
 import ButtonSizes from "@/Entities/Button/Types/ButtonSizes.ts";
 import ButtonStyles from "@/Entities/Button/Types/ButtonStyles.ts";
-import GradientWaves from "@/Entities/GradientWaves";
+import LetterGlitch from "@/Entities/LetterGlitch";
 import Text from "@/Entities/Text";
 import TextSizes from "@/Entities/Text/Types/TextSizes.ts";
 import TextStyles from "@/Entities/Text/Types/TextStyles.ts";
@@ -22,13 +22,11 @@ const openRepository = () => {
 const Hero = () => {
   return (
     <section className={styles.hero}>
-      <GradientWaves
-        className={styles.waves}
-        horizonColor="#2e1065"
-        waveColor="#5b21b6"
-        crestColor="#8b5cf6"
-        amplitude={5}
-        detail="high"
+      <LetterGlitch
+        className={styles.background}
+        glitchColors={["#4c1d95", "#5b21b6", "#6d28d9", "#7c3aed"]}
+        glitchSpeed={60}
+        smooth
       />
       <div className={styles.content}>
         <Text

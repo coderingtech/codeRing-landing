@@ -15,7 +15,6 @@
     "dayjs": "^1.11.21",
     "fontfaceobserver": "^2.3.0",
     "gsap": "^3.15.0",
-    "ogl": "^1.0.11",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.1"
