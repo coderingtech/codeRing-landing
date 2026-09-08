@@ -1,3 +1,4 @@
+import Hero from "@/Widgets/Hero";
 import NavBar from "@/Widgets/NavBar";
 
 import styles from "./Layout.module.scss";
@@ -5,7 +6,10 @@ import styles from "./Layout.module.scss";
 const Layout = () => {
   return (
     <div className={styles.layout}>
-      <NavBar />
+      <div className={styles.navBarWrapper}>
+        <NavBar />
+      </div>
+      <Hero />
     </div>
   );
 };
