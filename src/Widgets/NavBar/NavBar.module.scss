@@ -1,0 +1,45 @@
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.navBar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  justify-self: start;
+}
+
+.centerButtons {
+  @include Utils.flexRow;
+  justify-self: center;
+  gap: Sizes.$gapS;
+}
+
+.loginButton {
+  justify-self: end;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .navBar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: Sizes.$gapL;
+    padding: Sizes.$gapM Sizes.$pagePadding;
+    background-color: Colors.$surface;
+    border-top: 1px solid Colors.$separator;
+  }
+
+  .centerButtons {
+    display: none;
+  }
+}

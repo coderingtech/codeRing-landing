@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# CodeRing Landing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Лендинг проекта [CodeRing](https://github.com/coderingtech) — продажная страница с описанием продукта, преимуществами, ценами и другими маркетинговыми материалами.
 
-Currently, two official plugins are available:
+**CodeRing** — это приложение для вайбкодинга, ориентированное в первую очередь на бизнес. Ничего не нужно устанавливать и настраивать: на сайте подключаешь репозиторий, ставишь задачу и получаешь готовый пулл-реквест в код.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Стек
 
-## React Compiler
+- [React](https://react.dev/) 19 + TypeScript
+- [Vite](https://vitejs.dev/)
+- SCSS Modules (CSS variables + design tokens в `src/Shared/Consts/*.module.scss`)
+- Архитектура по методологии [FSD](https://feature-sliced.design/) (Feature-Sliced Design)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Запуск проекта
 
-## Expanding the ESLint configuration
+```bash
+# установка зависимостей
+npm install
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# запуск dev-сервера
+npm run dev
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# проверка линтером
+npm run lint
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# прод-сборка
+npm run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# превью прод-сборки
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Dev-сервер по умолчанию поднимается на `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Структура папок
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Проект строится по методологии Feature-Sliced Design. Слои — сверху вниз:
+
 ```
+src/
+├── App.tsx                        # корневая композиция приложения
+├── main.tsx
+├── index.module.scss              # глобальные стили
+│
+├── Widgets/                       # самодостаточные блоки интерфейса
+│   └── NavBar/                    # навбар (сверху на десктопе, снизу на тач-устройствах)
+│       ├── NavBar.tsx
+│       ├── NavBar.module.scss
+│       ├── index.ts
+│       └── Consts/
+│           └── Texts.ts           # мультиязычные текстовки навбара
+│
+├── Entities/                      # бизнес-сущности и переиспользуемые атомы
+│   ├── Codering/                  # логотип + название продукта
+│   │   ├── Codering.tsx
+│   │   ├── Codering.module.scss
+│   │   ├── index.ts
+│   │   └── Consts/
+│   │       └── Texts.ts
+│   ├── Button/                    # переиспользуемая кнопка
+│   ├── Text/                      # типографика
+│   ├── Logo/                      # анимированное кольцо-логотип
+│   └── Surface/                   # карточка-поверхность
+│
+└── Shared/                        # переиспользуемое без бизнес-контекста
+    ├── Hooks/                     # useIsMobile, useSystemLanguage, useMultiLanguage
+    ├── Types/                     # Languages, MultiLanguage
+    └── Consts/                    # design tokens (colors, sizes, breakpoints, fonts, utils)
+```
+
+Алиас `@` указывает на `src` (настроен в `vite.config.ts` и `tsconfig.app.json`).
+
+### Правило слоёв FSD
+
+Импорты разрешены только сверху вниз:
+
+```
+App → Pages → Widgets → Features → Entities → Shared
+```
+
+Слой не может импортировать сам себя или слои выше себя.
+
+## Мультиязычность
+
+Все текстовки лежат в файле `Consts/Texts.ts` своего компонента и описываются в виде объекта, ключом которого является язык из `src/Shared/Types/Languages.ts`:
+
+```ts
+import Languages from "@/Shared/Types/Languages.ts";
+
+const Texts = {
+  text1: {
+    [Languages.RU]: "Текст",
+    [Languages.EN]: "Text",
+  },
+} as const;
+
+export default Texts;
+```
+
+Актуальный язык определяется хуком `useSystemLanguage` (по языку браузера), выбор нужной строки выполняет хук `useMultiLanguage` (`getText`). Компоненты типографики (`Text`) и кнопки (`Button`) принимают такой объект напрямую.
+
+## Планируемая архитектура
+
+На лендинге планируются следующие разделы: описание проекта, преимущества, цены и призывы к действию.
+
+### Навигация
+
+- **Десктоп:** навбар расположен сверху. Слева — логотип `Codering`, по центру — навигационные кнопки, справа — кнопка «Войти».
+- **Тач-устройства:** навигация переезжает вниз экрана, на панели остаются только логотип слева и кнопка «Войти» справа.
+- Переключение между вариантами реализовано через SCSS media queries на основе `Shared/Consts/Breakpoints.module.scss` (мобильная граница — `$mobile: 480px`).
+
+### Дальнейшие шаги
+
+- подключение роутинга (`react-router-dom` уже в зависимостях) и страниц лендинга;
+- наполнение контентных секций;
+- интеграция с API подключения репозиториев и генерации пулл-реквестов (актуально для будущего продуктового приложения).

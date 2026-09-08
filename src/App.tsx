@@ -1,7 +1,7 @@
+import NavBar from "@/Widgets/NavBar";
+
 const App = () => {
-    return (
-        <div>ZALUPA</div>
-    );
+  return <NavBar />;
 };
 
 export default App;
