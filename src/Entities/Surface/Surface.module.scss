@@ -4,11 +4,11 @@
 
 .wrapper {
   @include Utils.flexColumn;
-  padding: Sizes.$gapM Sizes.$gapL;
+  padding: var(--surface-padding, #{Sizes.$gapM} #{Sizes.$gapL});
   background-color: Colors.$surface;
   border: 1px solid Colors.$separator;
   border-radius: Sizes.$borderRadiusL;
-  gap: Sizes.$gapL;
+  gap: var(--surface-gap, #{Sizes.$gapL});
 }
 
 .titleWrapper {
