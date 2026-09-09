@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+  padding: Sizes.$gapL Sizes.$pagePadding;
 }
 
 .surface {
@@ -15,17 +15,13 @@
   --surface-gap: #{Sizes.$gapXL};
 }
 
-.title {
-  line-height: 1.2;
-}
-
 .subtitle {
   line-height: 1.6;
 }
 
 @media screen and (max-width: Breakpoints.$mobile) {
   .registrationCta {
-    padding: Sizes.$gapXXL Sizes.$pagePadding;
+    padding: Sizes.$gapM Sizes.$pagePadding;
   }
 
   .surface {
