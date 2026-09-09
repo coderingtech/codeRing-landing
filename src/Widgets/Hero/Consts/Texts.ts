@@ -15,6 +15,10 @@ const Texts = {
     [Languages.RU]: "Посмотреть репозиторий",
     [Languages.EN]: "View repository",
   },
+  next: {
+    [Languages.RU]: "Дальше",
+    [Languages.EN]: "Scroll to explore",
+  },
 } as const;
 
 export default Texts;
