@@ -2,6 +2,7 @@ import useFontsLoaded from "@/Shared/Hooks/useFontsLoaded.ts";
 import Hero from "@/Widgets/Hero";
 import LoadingScreen from "@/Widgets/LoadingScreen";
 import NavBar from "@/Widgets/NavBar";
+import Security from "@/Widgets/Security";
 import WhatIsCodeRing from "@/Widgets/WhatIsCodeRing";
 
 import styles from "./Layout.module.scss";
@@ -20,6 +21,7 @@ const Layout = () => {
       </div>
       <Hero />
       <WhatIsCodeRing />
+      <Security />
     </div>
   );
 };
