@@ -18,7 +18,7 @@ const steps = [
 
 const WhatIsCodeRing = () => {
   return (
-    <section className={styles.whatIsCodeRing}>
+    <section className={styles.whatIsCodeRing} id="how-it-works">
       <Surface className={styles.surface} title={Texts.title}>
         <Text
           type={TextTypes.TEXT}
