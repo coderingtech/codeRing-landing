@@ -3,6 +3,7 @@ import Hero from "@/Widgets/Hero";
 import LoadingScreen from "@/Widgets/LoadingScreen";
 import NavBar from "@/Widgets/NavBar";
 import Security from "@/Widgets/Security";
+import TechStack from "@/Widgets/TechStack";
 import WhatIsCodeRing from "@/Widgets/WhatIsCodeRing";
 
 import styles from "./Layout.module.scss";
@@ -22,6 +23,7 @@ const Layout = () => {
       <Hero />
       <WhatIsCodeRing />
       <Security />
+      <TechStack />
     </div>
   );
 };
