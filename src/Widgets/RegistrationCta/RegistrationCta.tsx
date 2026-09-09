@@ -7,11 +7,14 @@ import TextSizes from "@/Entities/Text/Types/TextSizes.ts";
 import TextStyles from "@/Entities/Text/Types/TextStyles.ts";
 import TextTypes from "@/Entities/Text/Types/TextTypes.ts";
 import TextWeights from "@/Entities/Text/Types/TextWeights.ts";
+import useIsMobile from "@/Shared/Hooks/useIsMobile.ts";
 
 import Texts from "./Consts/Texts.ts";
 import styles from "./RegistrationCta.module.scss";
 
 const RegistrationCta = () => {
+  const isMobile = useIsMobile();
+
   return (
     <section className={styles.registrationCta}>
       <Surface className={styles.surface}>
@@ -36,7 +39,7 @@ const RegistrationCta = () => {
           text={Texts.button}
           size={ButtonSizes.L}
           style={ButtonStyles.PRIMARY}
-          className={styles.button}
+          allWidth={isMobile}
         />
       </Surface>
     </section>
