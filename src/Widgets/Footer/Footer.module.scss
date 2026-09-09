@@ -1,0 +1,53 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+  background-color: Colors.$surface;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: Sizes.$gapXXL;
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: Sizes.$gapM;
+  min-width: 0;
+}
+
+.slogan {
+  max-width: 200px;
+  line-height: 1.6;
+  text-wrap: balance;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: Sizes.$gapM;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .footer {
+    padding: Sizes.$gapXXL Sizes.$pagePadding
+      calc(#{Sizes.$mobileMenuHeight} + #{Sizes.$gapXXL});
+  }
+
+  .container {
+    grid-template-columns: 1fr;
+    gap: Sizes.$gapXXL;
+  }
+}
