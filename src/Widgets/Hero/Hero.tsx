@@ -1,4 +1,4 @@
-import { IconExternalLink } from "@tabler/icons-react";
+import { IconChevronDown, IconExternalLink } from "@tabler/icons-react";
 
 import Button from "@/Entities/Button";
 import ButtonSizes from "@/Entities/Button/Types/ButtonSizes.ts";
@@ -17,6 +17,13 @@ const REPOSITORY_URL = "https://github.com/coderingtech/codeRing-landing";
 
 const openRepository = () => {
   window.open(REPOSITORY_URL, "_blank", "noopener,noreferrer");
+};
+
+const scrollToNextScreen = () => {
+  window.scrollTo({
+    top: window.scrollY + window.innerHeight,
+    behavior: "smooth",
+  });
 };
 
 const Hero = () => {
@@ -54,6 +61,30 @@ const Hero = () => {
           size={ButtonSizes.L}
           style={ButtonStyles.PRIMARY}
         />
+      </div>
+      <div className={styles.scrollCta}>
+        <Button
+          text={Texts.next}
+          onClick={scrollToNextScreen}
+          size={ButtonSizes.M}
+          style={ButtonStyles.BORDER}
+        />
+        <button
+          type="button"
+          className={styles.scrollHint}
+          onClick={scrollToNextScreen}
+        >
+          <Text
+            type={TextTypes.TEXT}
+            size={TextSizes.S}
+            weight={TextWeights.MEDIUM}
+            style={TextStyles.WHITE}
+            className={styles.scrollHintText}
+          >
+            {Texts.scrollToExplore}
+          </Text>
+          <IconChevronDown className={styles.scrollArrow} />
+        </button>
       </div>
     </section>
   );

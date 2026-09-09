@@ -1,5 +1,6 @@
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
 
 .hero {
   position: relative;
@@ -44,8 +45,55 @@
 }
 
 .subtitle {
-  max-width: 640px;
+  max-width: 520px;
   line-height: 1.5;
+}
+
+.scrollCta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: Sizes.$gapXXL;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: Sizes.$gapM;
+}
+
+.scrollHint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: Sizes.$gapXS;
+}
+
+.scrollHintText {
+  opacity: 0.75;
+}
+
+@media (hover: hover) {
+  .scrollHint:hover .scrollHintText {
+    opacity: 1;
+  }
+}
+
+.scrollArrow {
+  width: Sizes.$gapXL;
+  height: Sizes.$gapXL;
+  color: Colors.$white;
+  animation: scrollArrowFloat 1.4s ease-in-out infinite;
+}
+
+@keyframes scrollArrowFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(6px);
+  }
 }
 
 @media screen and (max-width: Breakpoints.$mobile) {
@@ -56,5 +104,9 @@
   .content {
     gap: Sizes.$gapXL;
     padding: 0 Sizes.$gapXL;
+  }
+
+  .scrollCta {
+    bottom: calc(#{Sizes.$mobileMenuHeight} + #{Sizes.$gapXXL});
   }
 }
