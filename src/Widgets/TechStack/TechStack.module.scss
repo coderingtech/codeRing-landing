@@ -1,0 +1,88 @@
+@use "/src/Shared/Consts/Breakpoints.module" as Breakpoints;
+@use "/src/Shared/Consts/Sizes.module" as Sizes;
+
+.techStack {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+}
+
+.surface {
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+  --pad-x: #{Sizes.$gapXXL};
+  --pad-y: #{Sizes.$gapXXXL};
+  --surface-padding: var(--pad-y) var(--pad-x);
+  --surface-gap: #{Sizes.$gapXL};
+}
+
+.title {
+  line-height: 1.2;
+}
+
+.subtitle {
+  line-height: 1.6;
+}
+
+.marquee {
+  align-self: stretch;
+  width: auto;
+  margin-right: calc(-1 * var(--pad-x));
+  margin-left: calc(-1 * var(--pad-x));
+  overflow: hidden;
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  will-change: transform;
+  animation: techStackMarquee var(--marquee-duration, 40s) linear infinite;
+}
+
+.marqueeContent {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.logo {
+  width: auto;
+  height: 34px;
+  margin-right: Sizes.$gapXXL;
+  flex-shrink: 0;
+}
+
+@keyframes techStackMarquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .techStack {
+    padding: Sizes.$gapXXL Sizes.$pagePadding;
+  }
+
+  .surface {
+    --pad-x: #{Sizes.$gapL};
+    --pad-y: #{Sizes.$gapXXL};
+    --marquee-duration: 32s;
+  }
+
+  .logo {
+    height: 26px;
+    margin-right: Sizes.$gapXL;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
