@@ -1,5 +1,4 @@
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
-@use '/src/Shared/Consts/Colors.module' as Colors;
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
 @use '/src/Shared/Consts/Utils.module' as Utils;
 
@@ -38,9 +37,6 @@
   overflow: hidden;
   width: 100%;
   padding: Sizes.$gapL 0;
-  background-color: Colors.$surface;
-  border-top: 1px solid Colors.$separator;
-  border-bottom: 1px solid Colors.$separator;
 }
 
 .track {
