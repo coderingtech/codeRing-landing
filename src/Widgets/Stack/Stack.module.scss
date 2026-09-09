@@ -5,9 +5,17 @@
 
 .stack {
   display: flex;
+  flex-direction: column;
+  gap: Sizes.$gapXXXL;
+  width: 100%;
+  padding: Sizes.$gapXXXL 0;
+}
+
+.surfaceWrap {
+  display: flex;
   justify-content: center;
   width: 100%;
-  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+  padding: 0 Sizes.$pagePadding;
 }
 
 .surface {
@@ -29,18 +37,22 @@
   @include Utils.hideScrollBar;
   overflow: hidden;
   width: 100%;
-  padding-top: Sizes.$gapXXL;
+  padding: Sizes.$gapL 0;
+  background-color: Colors.$surface;
   border-top: 1px solid Colors.$separator;
+  border-bottom: 1px solid Colors.$separator;
 }
 
 .track {
   display: flex;
+  align-items: center;
   width: max-content;
   animation: marquee 40s linear infinite;
 }
 
 .group {
   display: flex;
+  align-items: center;
   flex-wrap: nowrap;
   margin: 0;
   padding: 0;
@@ -51,17 +63,13 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
-  white-space: nowrap;
-  padding: Sizes.$gapS Sizes.$gapL;
-  margin-right: Sizes.$gapL;
-  background-color: Colors.$background;
-  border: 1px solid Colors.$separator;
-  border-radius: Sizes.$borderRadiusM;
+  margin-right: Sizes.$gapXXXL;
 }
 
-.marquee:hover .track,
-.marquee:focus-within .track {
-  animation-play-state: paused;
+.logo {
+  display: block;
+  width: Sizes.$gapXXL;
+  height: Sizes.$gapXXL;
 }
 
 @keyframes marquee {
@@ -76,11 +84,19 @@
 
 @media screen and (max-width: Breakpoints.$mobile) {
   .stack {
-    padding: Sizes.$gapXXL Sizes.$pagePadding;
+    padding: Sizes.$gapXXL 0;
   }
 
   .surface {
     --surface-padding: #{Sizes.$gapXXL} #{Sizes.$gapL};
+  }
+
+  .marquee {
+    padding: Sizes.$gapM 0;
+  }
+
+  .item {
+    margin-right: Sizes.$gapXXL;
   }
 }
 
