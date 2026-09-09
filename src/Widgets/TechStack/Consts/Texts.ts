@@ -2,8 +2,8 @@ import Languages from "@/Shared/Types/Languages.ts";
 
 const Texts = {
   title: {
-    [Languages.RU]: "CodeRing\u00a0подходит\u00a0вам",
-    [Languages.EN]: "CodeRing\u00a0fits\u00a0you\u00a0perfectly",
+    [Languages.RU]: "CodeRing подходит вам",
+    [Languages.EN]: "CodeRing\u00a0fits you\u00a0perfectly",
   },
   subtitle: {
     [Languages.RU]:

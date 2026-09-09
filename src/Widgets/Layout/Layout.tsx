@@ -2,6 +2,7 @@ import useFontsLoaded from "@/Shared/Hooks/useFontsLoaded.ts";
 import Hero from "@/Widgets/Hero";
 import LoadingScreen from "@/Widgets/LoadingScreen";
 import NavBar from "@/Widgets/NavBar";
+import RegistrationCta from "@/Widgets/RegistrationCta";
 import Security from "@/Widgets/Security";
 import TechStack from "@/Widgets/TechStack";
 import WhatIsCodeRing from "@/Widgets/WhatIsCodeRing";
@@ -24,6 +25,7 @@ const Layout = () => {
       <WhatIsCodeRing />
       <Security />
       <TechStack />
+      <RegistrationCta />
     </div>
   );
 };

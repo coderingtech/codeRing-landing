@@ -1,0 +1,34 @@
+@use "/src/Shared/Consts/Breakpoints.module" as Breakpoints;
+@use "/src/Shared/Consts/Sizes.module" as Sizes;
+
+.registrationCta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+}
+
+.surface {
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+  --surface-padding: #{Sizes.$gapXXXL} #{Sizes.$gapXXL};
+  --surface-gap: #{Sizes.$gapXL};
+}
+
+.title {
+  line-height: 1.2;
+}
+
+.subtitle {
+  line-height: 1.6;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .registrationCta {
+    padding: Sizes.$gapXXL Sizes.$pagePadding;
+  }
+
+  .surface {
+    --surface-padding: #{Sizes.$gapXXL} #{Sizes.$gapL};
+  }
+}
