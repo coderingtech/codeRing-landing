@@ -1,0 +1,76 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: Sizes.$gapL;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+  background-color: Colors.$surface;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: Sizes.$gapXXL;
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: Sizes.$gapXXL;
+  width: 100%;
+}
+
+.slogan {
+  line-height: 1.6;
+  text-wrap: balance;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: Sizes.$gapM;
+  min-width: 0;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .footer {
+    margin-top: Sizes.$gapM;
+    padding: Sizes.$gapXXL Sizes.$pagePadding
+      calc(#{Sizes.$mobileMenuHeight} + #{Sizes.$gapXXL});
+  }
+
+  .columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: Sizes.$gapL;
+  }
+
+  .links {
+    width: 100%;
+  }
+
+  .links a {
+    width: auto;
+    max-width: 100%;
+    min-width: 0;
+    font-size: Sizes.$textSmall;
+  }
+
+  .links a svg {
+    width: Sizes.$textSmall;
+    height: Sizes.$textSmall;
+  }
+
+  .links a span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+}

@@ -1,0 +1,34 @@
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Durations.module' as Durations;
+@use '/src/Shared/Consts/Fonts.module' as Fonts;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.link {
+  --extra-transition: color #{Durations.$fast};
+  @include Utils.clickable;
+  @include Fonts.mainFont;
+  @include Utils.flexRow;
+  gap: Sizes.$gapS;
+  width: max-content;
+  padding-right: Sizes.$gapXS;
+  font-size: Sizes.$textMedium;
+  color: Colors.$subtitle;
+}
+
+.arrow {
+  flex-shrink: 0;
+  width: Sizes.$textMedium;
+  height: Sizes.$textMedium;
+  transition: transform Durations.$fast;
+}
+
+@media (hover: hover) {
+  .link:hover {
+    color: Colors.$white;
+  }
+
+  .link:hover .arrow {
+    transform: translateX(Sizes.$gapXS);
+  }
+}
