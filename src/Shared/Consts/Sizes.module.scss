@@ -14,6 +14,7 @@ $borderRadiusM: 12px;
 $borderRadiusL: 16px;
 $borderRadiusXL: 20px;
 $borderRadiusXXL: 24px;
+$contentWidth: 860px;
 $pagePadding: var(--page-padding, #{$gapXXL});
 $pageHeight: calc(100dvh - #{$pagePadding} * 2);
 $mobileMenuHeight: calc(46px + #{$gapXL});

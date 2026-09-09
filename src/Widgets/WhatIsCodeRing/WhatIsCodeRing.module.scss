@@ -1,0 +1,96 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Fonts.module' as Fonts;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+
+.whatIsCodeRing {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+}
+
+.surface {
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+  --surface-padding: #{Sizes.$gapXXXL} #{Sizes.$gapXXL};
+  --surface-gap: #{Sizes.$gapXL};
+}
+
+.title {
+  line-height: 1.2;
+}
+
+.paragraph {
+  line-height: 1.6;
+}
+
+.howItWorks {
+  display: flex;
+  flex-direction: column;
+  gap: Sizes.$gapL;
+  width: 100%;
+  padding-top: Sizes.$gapXXL;
+  border-top: 1px solid Colors.$separator;
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: Sizes.$gapXXL;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: Sizes.$gapL;
+}
+
+.stepNumber {
+  @include Fonts.mainFont;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: Sizes.$gapXXXL;
+  height: Sizes.$gapXXXL;
+  font-size: Sizes.$textSmall;
+  font-weight: 600;
+  color: Colors.$white;
+  background-color: Colors.$surfaceActive;
+  border: 1px solid Colors.$separator;
+  border-radius: 50%;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: Sizes.$gapS;
+  min-width: 0;
+}
+
+.stepTitle {
+  line-height: 1.35;
+}
+
+.stepText {
+  line-height: 1.6;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .whatIsCodeRing {
+    padding: Sizes.$gapXXL Sizes.$pagePadding;
+  }
+
+  .surface {
+    --surface-padding: #{Sizes.$gapXXL} #{Sizes.$gapL};
+  }
+
+  .step {
+    gap: Sizes.$gapM;
+  }
+}
