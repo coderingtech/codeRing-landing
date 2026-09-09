@@ -1,0 +1,65 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.security {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+}
+
+.surface {
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+  --surface-padding: #{Sizes.$gapXXXL} #{Sizes.$gapXXL};
+  --surface-gap: #{Sizes.$gapXL};
+}
+
+.title {
+  line-height: 1.2;
+}
+
+.subtitle {
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: Sizes.$gapXL;
+  width: 100%;
+}
+
+.card {
+  @include Utils.flexColumn;
+  gap: Sizes.$gapS;
+  min-width: 0;
+  padding: Sizes.$gapXL;
+  background-color: Colors.$background;
+  border: 1px solid Colors.$separator;
+  border-radius: Sizes.$borderRadiusL;
+}
+
+.cardTitle {
+  line-height: 1.35;
+}
+
+.cardText {
+  line-height: 1.6;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .security {
+    padding: Sizes.$gapXXL Sizes.$pagePadding;
+  }
+
+  .surface {
+    --surface-padding: #{Sizes.$gapXXL} #{Sizes.$gapL};
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
