@@ -1,0 +1,99 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.stack {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+}
+
+.surface {
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+  --surface-padding: #{Sizes.$gapXXXL} #{Sizes.$gapXXL};
+  --surface-gap: #{Sizes.$gapXL};
+}
+
+.title {
+  line-height: 1.2;
+}
+
+.subtitle {
+  line-height: 1.6;
+}
+
+.marquee {
+  @include Utils.hideScrollBar;
+  overflow: hidden;
+  width: 100%;
+  padding-top: Sizes.$gapXXL;
+  border-top: 1px solid Colors.$separator;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.group {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: Sizes.$gapS Sizes.$gapL;
+  margin-right: Sizes.$gapL;
+  background-color: Colors.$background;
+  border: 1px solid Colors.$separator;
+  border-radius: Sizes.$borderRadiusM;
+}
+
+.marquee:hover .track,
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .stack {
+    padding: Sizes.$gapXXL Sizes.$pagePadding;
+  }
+
+  .surface {
+    --surface-padding: #{Sizes.$gapXXL} #{Sizes.$gapL};
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+
+  .duplicate {
+    display: none;
+  }
+
+  .marquee {
+    overflow-x: auto;
+  }
+}
