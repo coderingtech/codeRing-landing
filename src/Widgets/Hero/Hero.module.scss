@@ -1,7 +1,6 @@
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
 @use '/src/Shared/Consts/Colors.module' as Colors;
-@use '/src/Shared/Consts/Durations.module' as Durations;
 @use '/src/Shared/Consts/Utils.module' as Utils;
 
 .hero {
@@ -68,22 +67,6 @@
   align-items: center;
   gap: Sizes.$gapXS;
   padding: Sizes.$gapS Sizes.$gapL;
-  border: 1px solid Colors.$white;
-  border-radius: Sizes.$borderRadiusS;
-  background-color: transparent;
-  --extra-transition: background-color #{Durations.$fast}, border #{Durations.$fast};
-
-  @media (hover: hover) {
-    &:hover {
-      border-color: Colors.$whiteHover;
-      background-color: rgba(255, 255, 255, 0.05);
-    }
-  }
-
-  &:active {
-    border-color: Colors.$whiteActive;
-    background-color: rgba(255, 255, 255, 0.09);
-  }
 }
 
 .scrollArrow {
