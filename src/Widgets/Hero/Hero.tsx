@@ -21,7 +21,7 @@ const openRepository = () => {
 
 const scrollToNextScreen = () => {
   window.scrollTo({
-    top: window.scrollY + window.innerHeight,
+    top: window.innerHeight,
     behavior: "smooth",
   });
 };
@@ -63,25 +63,18 @@ const Hero = () => {
         />
       </div>
       <div className={styles.scrollCta}>
-        <Button
-          text={Texts.next}
-          onClick={scrollToNextScreen}
-          size={ButtonSizes.M}
-          style={ButtonStyles.BORDER}
-        />
         <button
           type="button"
-          className={styles.scrollHint}
+          className={styles.scrollButton}
           onClick={scrollToNextScreen}
         >
           <Text
             type={TextTypes.TEXT}
-            size={TextSizes.S}
+            size={TextSizes.M}
             weight={TextWeights.MEDIUM}
             style={TextStyles.WHITE}
-            className={styles.scrollHintText}
           >
-            {Texts.scrollToExplore}
+            {Texts.next}
           </Text>
           <IconChevronDown className={styles.scrollArrow} />
         </button>

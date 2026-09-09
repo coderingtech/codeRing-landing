@@ -17,10 +17,6 @@ const Texts = {
   },
   next: {
     [Languages.RU]: "Дальше",
-    [Languages.EN]: "Next",
-  },
-  scrollToExplore: {
-    [Languages.RU]: "Scroll to explore",
     [Languages.EN]: "Scroll to explore",
   },
 } as const;
