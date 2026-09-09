@@ -18,18 +18,10 @@ const cards = [
 const Security = () => {
   return (
     <section className={styles.security}>
-      <Surface className={styles.surface}>
-        <Text
-          type={TextTypes.TITLE}
-          size={TextSizes.L}
-          weight={TextWeights.MEDIUM}
-          className={styles.title}
-        >
-          {Texts.title}
-        </Text>
+      <Surface className={styles.surface} title={Texts.title}>
         <Text
           type={TextTypes.TEXT}
-          size={TextSizes.L}
+          size={TextSizes.M}
           weight={TextWeights.REGULAR}
           style={TextStyles.SUBTITLE}
           className={styles.subtitle}
@@ -41,7 +33,7 @@ const Security = () => {
             <div className={styles.card} key={index}>
               <Text
                 type={TextTypes.TEXT}
-                size={TextSizes.L}
+                size={TextSizes.M}
                 weight={TextWeights.SEMIBOLD}
                 className={styles.cardTitle}
               >

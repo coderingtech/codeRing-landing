@@ -19,18 +19,10 @@ const steps = [
 const WhatIsCodeRing = () => {
   return (
     <section className={styles.whatIsCodeRing}>
-      <Surface className={styles.surface}>
-        <Text
-          type={TextTypes.TITLE}
-          size={TextSizes.L}
-          weight={TextWeights.MEDIUM}
-          className={styles.title}
-        >
-          {Texts.title}
-        </Text>
+      <Surface className={styles.surface} title={Texts.title}>
         <Text
           type={TextTypes.TEXT}
-          size={TextSizes.L}
+          size={TextSizes.M}
           weight={TextWeights.REGULAR}
           className={styles.paragraph}
         >
@@ -38,7 +30,7 @@ const WhatIsCodeRing = () => {
         </Text>
         <Text
           type={TextTypes.TEXT}
-          size={TextSizes.L}
+          size={TextSizes.M}
           weight={TextWeights.REGULAR}
           className={styles.paragraph}
         >
@@ -47,7 +39,7 @@ const WhatIsCodeRing = () => {
         <div className={styles.howItWorks}>
           <Text
             type={TextTypes.TEXT}
-            size={TextSizes.L}
+            size={TextSizes.M}
             weight={TextWeights.BOLD}
           >
             {Texts.howItWorksTitle}
@@ -59,7 +51,7 @@ const WhatIsCodeRing = () => {
                 <div className={styles.stepContent}>
                   <Text
                     type={TextTypes.TEXT}
-                    size={TextSizes.L}
+                    size={TextSizes.M}
                     weight={TextWeights.SEMIBOLD}
                     className={styles.stepTitle}
                   >

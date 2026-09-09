@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: Sizes.$gapXXXL Sizes.$pagePadding;
+  padding: Sizes.$gapL Sizes.$pagePadding;
 }
 
 .surface {
@@ -15,10 +15,6 @@
   --pad-y: #{Sizes.$gapXXXL};
   --surface-padding: var(--pad-y) var(--pad-x);
   --surface-gap: #{Sizes.$gapXL};
-}
-
-.title {
-  line-height: 1.2;
 }
 
 .subtitle {
@@ -66,7 +62,7 @@
 
 @media screen and (max-width: Breakpoints.$mobile) {
   .techStack {
-    padding: Sizes.$gapXXL Sizes.$pagePadding;
+    padding: Sizes.$gapM Sizes.$pagePadding;
   }
 
   .surface {
