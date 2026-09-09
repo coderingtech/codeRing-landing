@@ -5,6 +5,8 @@
 @use '/src/Shared/Consts/Utils.module' as Utils;
 
 .link {
+  --extra-transition: color #{Durations.$fast};
+  @include Utils.clickable;
   @include Fonts.mainFont;
   @include Utils.flexRow;
   gap: Sizes.$gapS;
@@ -12,7 +14,6 @@
   padding-right: Sizes.$gapXS;
   font-size: Sizes.$textMedium;
   color: Colors.$subtitle;
-  transition: color Durations.$fast;
 }
 
 .arrow {

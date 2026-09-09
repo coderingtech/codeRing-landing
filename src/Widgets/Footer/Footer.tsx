@@ -1,5 +1,5 @@
 import Codering from "@/Entities/Codering";
-import FooterLink from "@/Entities/FooterLink";
+import Link from "@/Entities/Link";
 import Text from "@/Entities/Text";
 import TextSizes from "@/Entities/Text/Types/TextSizes.ts";
 import TextStyles from "@/Entities/Text/Types/TextStyles.ts";
@@ -21,8 +21,8 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <div className={styles.brand}>
-          <Codering />
+        <Codering />
+        <div className={styles.columns}>
           <Text
             type={TextTypes.TEXT}
             size={TextSizes.M}
@@ -32,12 +32,12 @@ const Footer = () => {
           >
             {Texts.slogan}
           </Text>
+          <nav className={styles.links}>
+            {documentLinks.map((link, index) => (
+              <Link key={index} text={link.text} href={GOOGLE_URL} />
+            ))}
+          </nav>
         </div>
-        <nav className={styles.links}>
-          {documentLinks.map((link, index) => (
-            <FooterLink key={index} text={link.text} href={GOOGLE_URL} />
-          ))}
-        </nav>
       </div>
     </footer>
   );

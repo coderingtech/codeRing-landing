@@ -1,10 +1,10 @@
-import { IconArrowRight } from "@tabler/icons-react";
+import { IconChevronRight } from "@tabler/icons-react";
 import cn from "classnames";
 
 import useMultiLanguage from "@/Shared/Hooks/useMultiLanguage.ts";
 import { type MultiLanguage } from "@/Shared/Types/MultiLanguage.ts";
 
-import styles from "./FooterLink.module.scss";
+import styles from "./Link.module.scss";
 
 interface Props {
   text: MultiLanguage;
@@ -12,7 +12,7 @@ interface Props {
   className?: string;
 }
 
-const FooterLink = ({ text, href, className }: Props) => {
+const Link = ({ text, href, className }: Props) => {
   const { getText } = useMultiLanguage();
 
   return (
@@ -22,10 +22,10 @@ const FooterLink = ({ text, href, className }: Props) => {
       target="_blank"
       rel="noreferrer"
     >
-      <span className={styles.label}>{getText(text)}</span>
-      <IconArrowRight className={styles.arrow} />
+      <span>{getText(text)}</span>
+      <IconChevronRight className={styles.arrow} />
     </a>
   );
 };
 
-export default FooterLink;
+export default Link;
