@@ -2,6 +2,7 @@
 @use '/src/Shared/Consts/Colors.module' as Colors;
 @use '/src/Shared/Consts/Fonts.module' as Fonts;
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Utils.module' as Utils;
 
 .whatIsCodeRing {
   display: flex;
@@ -26,8 +27,7 @@
 }
 
 .howItWorks {
-  display: flex;
-  flex-direction: column;
+  @include Utils.flexColumn;
   gap: Sizes.$gapL;
   width: 100%;
   padding-top: Sizes.$gapXXL;
@@ -35,25 +35,24 @@
 }
 
 .steps {
-  display: flex;
-  flex-direction: column;
+  @include Utils.flexColumn;
   gap: Sizes.$gapXXL;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 .step {
-  display: flex;
+  @include Utils.flexRow;
   align-items: flex-start;
   gap: Sizes.$gapL;
+  width: 100%;
 }
 
 .stepNumber {
   @include Fonts.mainFont;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include Utils.flexCenter;
   flex-shrink: 0;
   width: Sizes.$gapXXXL;
   height: Sizes.$gapXXXL;
@@ -66,8 +65,7 @@
 }
 
 .stepContent {
-  display: flex;
-  flex-direction: column;
+  @include Utils.flexColumn;
   flex: 1;
   gap: Sizes.$gapS;
   min-width: 0;
