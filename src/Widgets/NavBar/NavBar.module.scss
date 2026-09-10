@@ -15,12 +15,12 @@
 
 .navBar {
   @include Utils.flexRow;
-  gap: Sizes.$gapL;
+  gap: Sizes.$gapXXL;
 }
 
 .centerButtons {
   @include Utils.flexRow;
-  gap: Sizes.$gapS;
+  gap: Sizes.$gapXS;
 }
 
 @media screen and (max-width: Breakpoints.$mobile) {

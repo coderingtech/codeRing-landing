@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: Sizes.$gapL Sizes.$pagePadding;
+  padding: 0 Sizes.$pagePadding;
   scroll-margin-top: 100px;
 }
 
@@ -78,7 +78,7 @@
 
 @media screen and (max-width: Breakpoints.$mobile) {
   .whatIsCodeRing {
-    padding: Sizes.$gapM Sizes.$pagePadding;
+    padding: 0 Sizes.$pagePadding;
   }
 
   .surface {
