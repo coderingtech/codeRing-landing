@@ -1,6 +1,7 @@
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
 @use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Typography.module' as Typography;
 @use '/src/Shared/Consts/Utils.module' as Utils;
 
 .hero {
@@ -15,9 +16,9 @@
   flex-shrink: 0;
   background: linear-gradient(
     180deg,
-    #2e1065 0%,
-    #240b50 55%,
-    #170733 100%
+    Colors.$heroGradientTop 0%,
+    Colors.$heroGradientMiddle 55%,
+    Colors.$heroGradientBottom 100%
   );
 
   --title-large: clamp(2.5rem, 5.5vw, 5rem);
@@ -36,18 +37,18 @@
   align-items: center;
   gap: Sizes.$gapXXL;
   width: 100%;
-  max-width: 860px;
+  max-width: Sizes.$contentWidth;
   padding: 0 Sizes.$gapXXL;
   text-align: center;
 }
 
 .title {
-  line-height: 1.1;
+  line-height: Typography.$lineHeightTight;
 }
 
 .subtitle {
   max-width: 520px;
-  line-height: 1.5;
+  line-height: Typography.$lineHeightNormal;
 }
 
 .scrollCta {

@@ -1,9 +1,10 @@
-import Surface from "@/Entities/Surface";
+import FeatureCard from "@/Entities/FeatureCard";
+import Section from "@/Entities/Section";
 import Text from "@/Entities/Text";
 import TextSizes from "@/Entities/Text/Types/TextSizes.ts";
-import TextStyles from "@/Entities/Text/Types/TextStyles.ts";
 import TextTypes from "@/Entities/Text/Types/TextTypes.ts";
 import TextWeights from "@/Entities/Text/Types/TextWeights.ts";
+import SectionIds from "@/Shared/Consts/SectionIds.ts";
 
 import Texts from "./Consts/Texts.ts";
 import styles from "./WhatIsCodeRing.module.scss";
@@ -18,61 +19,45 @@ const steps = [
 
 const WhatIsCodeRing = () => {
   return (
-    <section className={styles.whatIsCodeRing} id="how-it-works">
-      <Surface className={styles.surface} title={Texts.title}>
+    <Section id={SectionIds.HowItWorks} title={Texts.title}>
+      <Text
+        type={TextTypes.TEXT}
+        size={TextSizes.M}
+        weight={TextWeights.REGULAR}
+        className={styles.paragraph}
+      >
+        {Texts.description.paragraph1}
+      </Text>
+      <Text
+        type={TextTypes.TEXT}
+        size={TextSizes.M}
+        weight={TextWeights.REGULAR}
+        className={styles.paragraph}
+      >
+        {Texts.description.paragraph2}
+      </Text>
+      <div className={styles.howItWorks}>
         <Text
           type={TextTypes.TEXT}
           size={TextSizes.M}
-          weight={TextWeights.REGULAR}
-          className={styles.paragraph}
+          weight={TextWeights.BOLD}
         >
-          {Texts.description.paragraph1}
+          {Texts.howItWorksTitle}
         </Text>
-        <Text
-          type={TextTypes.TEXT}
-          size={TextSizes.M}
-          weight={TextWeights.REGULAR}
-          className={styles.paragraph}
-        >
-          {Texts.description.paragraph2}
-        </Text>
-        <div className={styles.howItWorks}>
-          <Text
-            type={TextTypes.TEXT}
-            size={TextSizes.M}
-            weight={TextWeights.BOLD}
-          >
-            {Texts.howItWorksTitle}
-          </Text>
-          <ul className={styles.steps}>
-            {steps.map((step, index) => (
-              <li className={styles.step} key={index}>
-                <span className={styles.stepNumber}>{index + 1}</span>
-                <div className={styles.stepContent}>
-                  <Text
-                    type={TextTypes.TEXT}
-                    size={TextSizes.M}
-                    weight={TextWeights.SEMIBOLD}
-                    className={styles.stepTitle}
-                  >
-                    {step.title}
-                  </Text>
-                  <Text
-                    type={TextTypes.TEXT}
-                    size={TextSizes.M}
-                    weight={TextWeights.REGULAR}
-                    style={TextStyles.SUBTITLE}
-                    className={styles.stepText}
-                  >
-                    {step.text}
-                  </Text>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </Surface>
-    </section>
+        <ul className={styles.steps}>
+          {steps.map((step, index) => (
+            <li key={index}>
+              <FeatureCard
+                number={index + 1}
+                title={step.title}
+                text={step.text}
+                className={styles.step}
+              />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
   );
 };
 

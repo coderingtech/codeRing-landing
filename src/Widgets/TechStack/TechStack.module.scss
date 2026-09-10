@@ -1,32 +1,11 @@
-@use "/src/Shared/Consts/Breakpoints.module" as Breakpoints;
-@use "/src/Shared/Consts/Sizes.module" as Sizes;
-
-.techStack {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  padding: 0 Sizes.$pagePadding;
-  scroll-margin-top: 100px;
-}
-
-.surface {
-  width: 100%;
-  max-width: Sizes.$contentWidth;
-  --pad-x: #{Sizes.$gapXXL};
-  --pad-y: #{Sizes.$gapXXXL};
-  --surface-padding: var(--pad-y) var(--pad-x);
-  --surface-gap: #{Sizes.$gapXL};
-}
-
-.subtitle {
-  line-height: 1.6;
-}
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
 
 .marquee {
   align-self: stretch;
   width: auto;
-  margin-right: calc(-1 * var(--pad-x));
-  margin-left: calc(-1 * var(--pad-x));
+  margin-right: calc(-1 * var(--surface-pad-x));
+  margin-left: calc(-1 * var(--surface-pad-x));
   overflow: hidden;
 }
 
@@ -62,13 +41,7 @@
 }
 
 @media screen and (max-width: Breakpoints.$mobile) {
-  .techStack {
-    padding: 0 Sizes.$pagePadding;
-  }
-
-  .surface {
-    --pad-x: #{Sizes.$gapL};
-    --pad-y: #{Sizes.$gapXXL};
+  .marquee {
     --marquee-duration: 32s;
   }
 

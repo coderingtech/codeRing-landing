@@ -1,9 +1,5 @@
-import Surface from "@/Entities/Surface";
-import Text from "@/Entities/Text";
-import TextSizes from "@/Entities/Text/Types/TextSizes.ts";
-import TextStyles from "@/Entities/Text/Types/TextStyles.ts";
-import TextTypes from "@/Entities/Text/Types/TextTypes.ts";
-import TextWeights from "@/Entities/Text/Types/TextWeights.ts";
+import Section from "@/Entities/Section";
+import SectionIds from "@/Shared/Consts/SectionIds.ts";
 
 import { technologies, type Technology } from "./Consts/Technologies.ts";
 import Texts from "./Consts/Texts.ts";
@@ -30,34 +26,27 @@ const renderTechnology = (
 
 const TechStack = () => {
   return (
-    <section className={styles.techStack} id="tech-stack">
-      <Surface className={styles.surface} title={Texts.title}>
-        <Text
-          type={TextTypes.TEXT}
-          size={TextSizes.M}
-          weight={TextWeights.REGULAR}
-          style={TextStyles.SUBTITLE}
-          className={styles.subtitle}
-        >
-          {Texts.subtitle}
-        </Text>
-        <div className={styles.marquee}>
-          <div className={styles.marqueeTrack}>
-            {[false, true].map((hidden, copyIndex) => (
-              <div
-                className={styles.marqueeContent}
-                aria-hidden={hidden || undefined}
-                key={copyIndex}
-              >
-                {technologies.map((technology, index) =>
-                  renderTechnology(technology, index, hidden),
-                )}
-              </div>
-            ))}
-          </div>
+    <Section
+      id={SectionIds.TechStack}
+      title={Texts.title}
+      subtitle={Texts.subtitle}
+    >
+      <div className={styles.marquee}>
+        <div className={styles.marqueeTrack}>
+          {[false, true].map((hidden, copyIndex) => (
+            <div
+              className={styles.marqueeContent}
+              aria-hidden={hidden || undefined}
+              key={copyIndex}
+            >
+              {technologies.map((technology, index) =>
+                renderTechnology(technology, index, hidden),
+              )}
+            </div>
+          ))}
         </div>
-      </Surface>
-    </section>
+      </div>
+    </Section>
   );
 };
 

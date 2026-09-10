@@ -1,7 +1,5 @@
 import { IconChevronDown, IconExternalLink } from "@tabler/icons-react";
 
-import useMultiLanguage from "@/Shared/Hooks/useMultiLanguage.ts";
-
 import Button from "@/Entities/Button";
 import ButtonSizes from "@/Entities/Button/Types/ButtonSizes.ts";
 import ButtonStyles from "@/Entities/Button/Types/ButtonStyles.ts";
@@ -11,32 +9,29 @@ import TextSizes from "@/Entities/Text/Types/TextSizes.ts";
 import TextStyles from "@/Entities/Text/Types/TextStyles.ts";
 import TextTypes from "@/Entities/Text/Types/TextTypes.ts";
 import TextWeights from "@/Entities/Text/Types/TextWeights.ts";
+import SectionIds from "@/Shared/Consts/SectionIds.ts";
+import useMultiLanguage from "@/Shared/Hooks/useMultiLanguage.ts";
+import useScrollToSection from "@/Shared/Hooks/useScrollToSection.ts";
 
+import GlitchColors from "./Consts/GlitchColors.ts";
 import Texts from "./Consts/Texts.ts";
 import styles from "./Hero.module.scss";
 
 const REPOSITORY_URL = "https://github.com/coderingtech/codeRing-landing";
-const HOW_IT_WORKS_SECTION_ID = "how-it-works";
 
 const openRepository = () => {
   window.open(REPOSITORY_URL, "_blank", "noopener,noreferrer");
 };
 
-const scrollToHowItWorks = () => {
-  document.getElementById(HOW_IT_WORKS_SECTION_ID)?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
-
 const Hero = () => {
   const { getText } = useMultiLanguage();
+  const scrollToSection = useScrollToSection();
 
   return (
     <section className={styles.hero}>
       <LetterGlitch
         className={styles.background}
-        glitchColors={["#4c1d95", "#5b21b6", "#6d28d9", "#7c3aed"]}
+        glitchColors={GlitchColors}
         glitchSpeed={60}
         smooth
       />
@@ -71,7 +66,7 @@ const Hero = () => {
         <button
           type="button"
           className={styles.scrollButton}
-          onClick={scrollToHowItWorks}
+          onClick={() => scrollToSection(SectionIds.HowItWorks)}
           aria-label={getText(Texts.scrollToHowItWorks)}
         >
           <Text
