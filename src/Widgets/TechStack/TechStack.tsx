@@ -30,7 +30,7 @@ const renderTechnology = (
 
 const TechStack = () => {
   return (
-    <section className={styles.techStack}>
+    <section className={styles.techStack} id="tech-stack">
       <Surface className={styles.surface} title={Texts.title}>
         <Text
           type={TextTypes.TEXT}

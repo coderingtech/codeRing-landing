@@ -17,7 +17,7 @@ const cards = [
 
 const Security = () => {
   return (
-    <section className={styles.security}>
+    <section className={styles.security} id="security">
       <Surface className={styles.surface} title={Texts.title}>
         <Text
           type={TextTypes.TEXT}

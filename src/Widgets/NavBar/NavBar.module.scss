@@ -1,6 +1,11 @@
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Colors.module' as Colors;
 @use '/src/Shared/Consts/Utils.module' as Utils;
+
+.gradient {
+  display: none;
+}
 
 .surface {
   width: max-content;
@@ -19,6 +24,21 @@
 }
 
 @media screen and (max-width: Breakpoints.$mobile) {
+  .gradient {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: calc(#{Sizes.$pagePadding} + #{Sizes.$navBarHeightTouch} / 2);
+    pointer-events: none;
+    background: linear-gradient(
+      to top,
+      rgba(Colors.$background, 1) 0%,
+      rgba(Colors.$background, 0) 100%
+    );
+  }
+
   .surface {
     position: fixed;
     bottom: Sizes.$pagePadding;

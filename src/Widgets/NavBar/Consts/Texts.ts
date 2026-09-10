@@ -2,17 +2,17 @@ import Languages from "@/Shared/Types/Languages.ts";
 
 const Texts = {
   navigation: {
-    button1: {
-      [Languages.RU]: "Кнопка 1",
-      [Languages.EN]: "Button 1",
+    howItWorks: {
+      [Languages.RU]: "Как\u00a0это работает?",
+      [Languages.EN]: "How\u00a0it works?",
     },
-    button2: {
-      [Languages.RU]: "Кнопка 2",
-      [Languages.EN]: "Button 2",
+    security: {
+      [Languages.RU]: "Безопасность",
+      [Languages.EN]: "Security",
     },
-    button3: {
-      [Languages.RU]: "Кнопка 3",
-      [Languages.EN]: "Button 3",
+    compatibility: {
+      [Languages.RU]: "Совместимость",
+      [Languages.EN]: "Compatibility",
     },
   },
   login: {
