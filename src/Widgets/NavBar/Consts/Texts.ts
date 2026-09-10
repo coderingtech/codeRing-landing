@@ -14,10 +14,6 @@ const Texts = {
       [Languages.RU]: "Совместимость",
       [Languages.EN]: "Compatibility",
     },
-    pricing: {
-      [Languages.RU]: "Цены (Pricing)",
-      [Languages.EN]: "Pricing",
-    },
   },
   login: {
     [Languages.RU]: "Войти",
