@@ -1,3 +1,4 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
 
 .layout {
@@ -19,4 +20,10 @@
 
 .navBarWrapper > * {
   pointer-events: auto;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .layout {
+    gap: Sizes.$gapL;
+  }
 }
