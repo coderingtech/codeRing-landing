@@ -18,7 +18,6 @@ const navigationItems: NavigationItem[] = [
   { text: Texts.navigation.howItWorks, sectionId: SectionIds.HowItWorks },
   { text: Texts.navigation.security, sectionId: SectionIds.Security },
   { text: Texts.navigation.compatibility, sectionId: SectionIds.TechStack },
-  { text: Texts.navigation.pricing, sectionId: SectionIds.Pricing },
 ];
 
 const NavBar = () => {
