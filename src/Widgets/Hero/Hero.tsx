@@ -1,5 +1,7 @@
 import { IconChevronDown, IconExternalLink } from "@tabler/icons-react";
 
+import useMultiLanguage from "@/Shared/Hooks/useMultiLanguage.ts";
+
 import Button from "@/Entities/Button";
 import ButtonSizes from "@/Entities/Button/Types/ButtonSizes.ts";
 import ButtonStyles from "@/Entities/Button/Types/ButtonStyles.ts";
@@ -14,19 +16,22 @@ import Texts from "./Consts/Texts.ts";
 import styles from "./Hero.module.scss";
 
 const REPOSITORY_URL = "https://github.com/coderingtech/codeRing-landing";
+const HOW_IT_WORKS_SECTION_ID = "how-it-works";
 
 const openRepository = () => {
   window.open(REPOSITORY_URL, "_blank", "noopener,noreferrer");
 };
 
-const scrollToNextScreen = () => {
-  window.scrollTo({
-    top: window.innerHeight,
+const scrollToHowItWorks = () => {
+  document.getElementById(HOW_IT_WORKS_SECTION_ID)?.scrollIntoView({
     behavior: "smooth",
+    block: "start",
   });
 };
 
 const Hero = () => {
+  const { getText } = useMultiLanguage();
+
   return (
     <section className={styles.hero}>
       <LetterGlitch
@@ -66,7 +71,8 @@ const Hero = () => {
         <button
           type="button"
           className={styles.scrollButton}
-          onClick={scrollToNextScreen}
+          onClick={scrollToHowItWorks}
+          aria-label={getText(Texts.scrollToHowItWorks)}
         >
           <Text
             type={TextTypes.TEXT}

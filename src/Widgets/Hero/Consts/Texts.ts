@@ -19,6 +19,10 @@ const Texts = {
     [Languages.RU]: "Дальше",
     [Languages.EN]: "Scroll to explore",
   },
+  scrollToHowItWorks: {
+    [Languages.RU]: "Перейти к разделу «Как это работает»",
+    [Languages.EN]: "Scroll to How it works",
+  },
 } as const;
 
 export default Texts;
