@@ -30,15 +30,11 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: calc(#{Sizes.$navBarHeightTouch} * 2 + #{Sizes.$pagePadding});
+    height: calc(#{Sizes.$pagePadding} + #{Sizes.$navBarHeightTouch} / 2);
     pointer-events: none;
     background: linear-gradient(
       to top,
       rgba(Colors.$background, 1) 0%,
-      rgba(Colors.$background, 0.95) 25%,
-      rgba(Colors.$background, 0.8) 50%,
-      rgba(Colors.$background, 0.4) 70%,
-      rgba(Colors.$background, 0.12) 85%,
       rgba(Colors.$background, 0) 100%
     );
   }
