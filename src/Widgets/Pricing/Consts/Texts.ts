@@ -14,7 +14,7 @@ const Texts = {
   realCase: {
     title: {
       [Languages.RU]: "Реальный кейс\u00a0—\u00a0этот лендинг",
-      [Languages.EN]: "Real-world case\u00a0—\u00a0this landing page",
+      [Languages.EN]: "Real-world case\u00a0—\u00a0this landing\u00a0page",
     },
     text: {
       [Languages.RU]:
