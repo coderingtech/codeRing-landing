@@ -15,7 +15,7 @@ const Texts = {
       [Languages.EN]: "Compatibility",
     },
     pricing: {
-      [Languages.RU]: "Цены (Pricing)",
+      [Languages.RU]: "Цена",
       [Languages.EN]: "Pricing",
     },
   },
