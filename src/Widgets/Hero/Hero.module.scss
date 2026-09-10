@@ -67,6 +67,12 @@
   align-items: center;
   gap: Sizes.$gapXS;
   padding: Sizes.$gapS Sizes.$gapL;
+
+  &:focus-visible {
+    outline: 2px solid Colors.$white;
+    outline-offset: 2px;
+    border-radius: Sizes.$borderRadiusS;
+  }
 }
 
 .scrollArrow {
