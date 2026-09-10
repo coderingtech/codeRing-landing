@@ -13,7 +13,7 @@ interface Props {
   size?: number;
   isLoading?: boolean;
   style?: LogoStyle;
-  clickable?: boolean;
+  isClickable?: boolean;
   className?: string;
 }
 
@@ -21,13 +21,13 @@ const Logo = ({
   size = 32,
   isLoading,
   style = LogoStyles.WHITE,
-  clickable,
+  isClickable,
   className,
 }: Props) => {
   return (
     <div
       className={cn(styles.wrapper, LogoStyleToClassNameMap[style], className, {
-        [styles.clickable]: clickable,
+        [styles.clickable]: isClickable,
       })}
       style={{ "--size": size } as CSSProperties}
     >

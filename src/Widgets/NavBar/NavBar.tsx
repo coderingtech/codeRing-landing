@@ -29,7 +29,7 @@ const NavBar = () => {
       <div className={styles.gradient} aria-hidden="true" />
       <Surface className={styles.surface}>
         <nav className={styles.navBar}>
-          <Codering />
+          <Codering isClickable />
           <div className={styles.centerButtons}>
             {navigationItems.map((item, index) => (
               <Button
