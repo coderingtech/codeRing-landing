@@ -1,0 +1,46 @@
+@use '/src/Shared/Consts/Colors.module' as Colors;
+@use '/src/Shared/Consts/Fonts.module' as Fonts;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Typography.module' as Typography;
+@use '/src/Shared/Consts/Utils.module' as Utils;
+
+.card {
+  @include Utils.flexColumn;
+  gap: Sizes.$gapS;
+  min-width: 0;
+}
+
+.withNumber {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: Sizes.$gapL;
+}
+
+.number {
+  @include Fonts.mainFont;
+  @include Utils.flexCenter;
+  flex-shrink: 0;
+  width: Sizes.$gapXXXL;
+  height: Sizes.$gapXXXL;
+  font-size: Sizes.$textSmall;
+  font-weight: 600;
+  color: Colors.$white;
+  background-color: Colors.$surfaceActive;
+  border: 1px solid Colors.$separator;
+  border-radius: 50%;
+}
+
+.content {
+  @include Utils.flexColumn;
+  flex: 1;
+  gap: Sizes.$gapS;
+  min-width: 0;
+}
+
+.title {
+  line-height: Typography.$lineHeightSnug;
+}
+
+.text {
+  line-height: Typography.$lineHeightRelaxed;
+}

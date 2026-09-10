@@ -27,6 +27,7 @@ $textSmall: 14px;
 $textMedium: 16px;
 $textLarge: 20px;
 $navBarHeightTouch: 46px;
+$scrollMarginTop: 100px;
 
 :root {
   --page-padding: #{$gapXXL};
@@ -36,7 +37,7 @@ $navBarHeightTouch: 46px;
   --title-large: 32px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: Breakpoints.$tablet) {
   :root {
     --page-padding: #{$gapL};
     --title-extra-small: 14px;

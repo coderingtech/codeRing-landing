@@ -1,6 +1,7 @@
 @use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
 @use '/src/Shared/Consts/Colors.module' as Colors;
 @use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Typography.module' as Typography;
 
 .footer {
   display: flex;
@@ -29,7 +30,7 @@
 }
 
 .slogan {
-  line-height: 1.6;
+  line-height: Typography.$lineHeightRelaxed;
   text-wrap: balance;
 }
 

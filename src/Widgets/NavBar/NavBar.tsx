@@ -2,24 +2,27 @@ import Button from "@/Entities/Button";
 import ButtonStyles from "@/Entities/Button/Types/ButtonStyles.ts";
 import Codering from "@/Entities/Codering";
 import Surface from "@/Entities/Surface";
+import SectionIds, { type SectionId } from "@/Shared/Consts/SectionIds.ts";
+import useScrollToSection from "@/Shared/Hooks/useScrollToSection.ts";
+import { type MultiLanguage } from "@/Shared/Types/MultiLanguage.ts";
 
 import Texts from "./Consts/Texts.ts";
 import styles from "./NavBar.module.scss";
 
-const navigationItems = [
-  { text: Texts.navigation.howItWorks, sectionId: "how-it-works" },
-  { text: Texts.navigation.security, sectionId: "security" },
-  { text: Texts.navigation.compatibility, sectionId: "tech-stack" },
+interface NavigationItem {
+  text: MultiLanguage;
+  sectionId: SectionId;
+}
+
+const navigationItems: NavigationItem[] = [
+  { text: Texts.navigation.howItWorks, sectionId: SectionIds.HowItWorks },
+  { text: Texts.navigation.security, sectionId: SectionIds.Security },
+  { text: Texts.navigation.compatibility, sectionId: SectionIds.TechStack },
 ];
 
-const scrollToSection = (sectionId: string) => {
-  document.getElementById(sectionId)?.scrollIntoView({
-    behavior: "smooth",
-    block: "start",
-  });
-};
-
 const NavBar = () => {
+  const scrollToSection = useScrollToSection();
+
   return (
     <>
       <div className={styles.gradient} aria-hidden="true" />

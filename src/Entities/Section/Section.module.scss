@@ -1,0 +1,31 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+@use '/src/Shared/Consts/Typography.module' as Typography;
+
+.section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 0 Sizes.$pagePadding;
+  scroll-margin-top: Sizes.$scrollMarginTop;
+}
+
+.surface {
+  width: 100%;
+  max-width: Sizes.$contentWidth;
+  --surface-pad-x: #{Sizes.$gapXXL};
+  --surface-pad-y: #{Sizes.$gapXXXL};
+  --surface-padding: var(--surface-pad-y) var(--surface-pad-x);
+  --surface-gap: #{Sizes.$gapXL};
+}
+
+.subtitle {
+  line-height: Typography.$lineHeightRelaxed;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .surface {
+    --surface-pad-x: #{Sizes.$gapL};
+    --surface-pad-y: #{Sizes.$gapXXL};
+  }
+}
