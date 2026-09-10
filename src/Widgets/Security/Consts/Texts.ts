@@ -2,7 +2,7 @@ import Languages from "@/Shared/Types/Languages.ts";
 
 const Texts = {
   title: {
-    [Languages.RU]: "Почему\u00a0CodeRing\u00a0безопасен",
+    [Languages.RU]: "Почему CodeRing безопасен",
     [Languages.EN]: "Why\u00a0CodeRing is\u00a0secure",
   },
   subtitle: {
