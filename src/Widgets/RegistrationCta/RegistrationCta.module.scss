@@ -5,7 +5,7 @@
   display: flex;
   justify-content: center;
   width: 100%;
-  padding: Sizes.$gapL Sizes.$pagePadding;
+  padding: 0 Sizes.$pagePadding;
 }
 
 .surface {
@@ -21,7 +21,7 @@
 
 @media screen and (max-width: Breakpoints.$mobile) {
   .registrationCta {
-    padding: Sizes.$gapM Sizes.$pagePadding;
+    padding: 0 Sizes.$pagePadding;
   }
 
   .surface {

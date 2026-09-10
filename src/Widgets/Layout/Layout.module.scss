@@ -3,6 +3,7 @@
 .layout {
   display: flex;
   flex-direction: column;
+  gap: Sizes.$gapXXXL;
   width: auto;
   margin: calc(-1 * Sizes.$pagePadding);
 }
