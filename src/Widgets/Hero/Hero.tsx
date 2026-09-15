@@ -17,7 +17,12 @@ import GlitchColors from "./Consts/GlitchColors.ts";
 import Texts from "./Consts/Texts.ts";
 import styles from "./Hero.module.scss";
 
+const APP_URL = "https://app.codering.tech";
 const REPOSITORY_URL = "https://github.com/coderingtech/codeRing-landing";
+
+const openApp = () => {
+  window.open(APP_URL, "_blank", "noopener,noreferrer");
+};
 
 const openRepository = () => {
   window.open(REPOSITORY_URL, "_blank", "noopener,noreferrer");
@@ -54,13 +59,21 @@ const Hero = () => {
         >
           {Texts.subtitle}
         </Text>
-        <Button
-          text={Texts.repositoryButton}
-          onClick={openRepository}
-          icon={IconExternalLink}
-          size={ButtonSizes.L}
-          style={ButtonStyles.PRIMARY}
-        />
+        <div className={styles.buttons}>
+          <Button
+            text={Texts.startFreeButton}
+            onClick={openApp}
+            size={ButtonSizes.L}
+            style={ButtonStyles.PRIMARY}
+          />
+          <Button
+            text={Texts.repositoryButton}
+            onClick={openRepository}
+            icon={IconExternalLink}
+            size={ButtonSizes.L}
+            style={ButtonStyles.SECONDARY}
+          />
+        </div>
       </div>
       <div className={styles.scrollCta}>
         <button

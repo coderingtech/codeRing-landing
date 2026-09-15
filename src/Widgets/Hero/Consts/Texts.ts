@@ -11,6 +11,10 @@ const Texts = {
     [Languages.EN]:
       "All\u00a0the\u00a0code for\u00a0this\u00a0page was\u00a0generated using CodeRing with zero manual\u00a0work",
   },
+  startFreeButton: {
+    [Languages.RU]: "Начать бесплатно",
+    [Languages.EN]: "Start free",
+  },
   repositoryButton: {
     [Languages.RU]: "Посмотреть репозиторий",
     [Languages.EN]: "View repository",
