@@ -1,3 +1,67 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-600.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-700.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-800.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('/public/fonts/Inter/inter-v20-cyrillic_latin-900.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: "Josefin Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/public/fonts/JosefinSans/josefin-sans-v34-latin-regular.woff2') format('woff2');
+}
+
 @mixin codeRing {
   font-family: "Josefin Sans", sans-serif;
   font-optical-sizing: auto;
