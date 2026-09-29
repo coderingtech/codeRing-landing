@@ -1,4 +1,5 @@
 import useFontsLoaded from "@/Shared/Hooks/useFontsLoaded.ts";
+import CookiesNotification from "@/Widgets/CookiesNotification";
 import Footer from "@/Widgets/Footer";
 import Hero from "@/Widgets/Hero";
 import LoadingScreen from "@/Widgets/LoadingScreen";
@@ -30,6 +31,7 @@ const Layout = () => {
       <Pricing />
       <RegistrationCta />
       <Footer />
+      <CookiesNotification />
     </div>
   );
 };
