@@ -32,23 +32,21 @@ const CookiesNotification = () => {
 
   return (
     <Surface className={styles.notification}>
-      <div className={styles.content}>
-        <Text
-          type={TextTypes.TITLE}
-          size={TextSizes.XS}
-          weight={TextWeights.SEMIBOLD}
-        >
-          {Texts.title}
-        </Text>
-        <Text
-          type={TextTypes.TEXT}
-          size={TextSizes.S}
-          weight={TextWeights.REGULAR}
-          style={TextStyles.SUBTITLE}
-        >
-          {Texts.text}
-        </Text>
-      </div>
+      <Text
+        type={TextTypes.TITLE}
+        size={TextSizes.S}
+        weight={TextWeights.REGULAR}
+      >
+        {Texts.title}
+      </Text>
+      <Text
+        type={TextTypes.TEXT}
+        size={TextSizes.S}
+        weight={TextWeights.REGULAR}
+        style={TextStyles.SUBTITLE}
+      >
+        {Texts.text}
+      </Text>
       <div className={styles.buttons}>
         <Button
           text={Texts.acceptAllButton}
