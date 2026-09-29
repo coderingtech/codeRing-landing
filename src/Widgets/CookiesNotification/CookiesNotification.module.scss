@@ -1,0 +1,38 @@
+@use '/src/Shared/Consts/Breakpoints.module' as Breakpoints;
+@use '/src/Shared/Consts/Sizes.module' as Sizes;
+
+.notification {
+  position: fixed;
+  right: Sizes.$pagePadding;
+  bottom: Sizes.$pagePadding;
+  z-index: 20;
+  width: 100%;
+  max-width: 400px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  gap: Sizes.$gapS;
+  width: 100%;
+}
+
+@media screen and (max-width: Breakpoints.$mobile) {
+  .notification {
+    left: Sizes.$pagePadding;
+    right: Sizes.$pagePadding;
+    bottom: calc(
+      #{Sizes.$pagePadding} + #{Sizes.$mobileMenuHeight} + #{Sizes.$gapM}
+    );
+    width: auto;
+    max-width: none;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  .buttons button {
+    width: 100%;
+  }
+}
