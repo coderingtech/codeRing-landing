@@ -1,0 +1,14 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+	<style>
+		.background { fill: #e1e1e1 } 
+		.ring { fill: none; stroke: #191a1a; stroke-miterlimit:100; stroke-width: 1.9 }
+
+        @media (prefers-color-scheme: light) {
+            .background { fill: #191a1a; }
+            .ring { stroke: #e1e1e1; }
+        }
+	</style>
+	<path id="background" fill-rule="evenodd" class="background" d="m16 32c-8.85 0-16-7.15-16-16 0-8.85 7.15-16 16-16 8.85 0 16 7.15 16 16 0 8.85-7.15 16-16 16z"/>
+	<path id="ring1" fill-rule="evenodd" class="ring" d="m17.42 25.42c-4.42 4.43-8 4.43-8 0 0-4.42 3.58-11.57 8-16 4.43-4.42 8-4.42 8 0 0 4.43-3.57 11.58-8 16z"/>
+	<path id="ring2" fill-rule="evenodd" class="ring" d="m14.58 22.58c-4.43 4.42-8 4.42-8 0 0-4.43 3.57-11.58 8-16 4.42-4.43 8-4.43 8 0 0 4.42-3.58 11.57-8 16z"/>
+</svg>
